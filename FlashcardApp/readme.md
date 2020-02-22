@@ -7,8 +7,7 @@ This app uses labels and views to create a simple flashcard app that flips sides
 
 ### App Walk-through
 
-<img src="http://g.recordit.co/AqlAvb5mkN.gif" width=200><br>
-
+<img src="http://g.recordit.co/1C3vGNKRpU.gif" width=200><br>
 
 ## Required
 - [x] Create New Project in Xcode
