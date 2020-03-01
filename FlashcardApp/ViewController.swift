@@ -23,5 +23,21 @@ class ViewController: UIViewController {
         questionLabel.isHidden = true
     }
     
+    func updateFlashcard(question: String, answer: String) {
+        questionLabel.text = question
+        answerLabel.text = answer
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           // Get the new view controller using segue.destination.
+           // Pass the selected object to the new view controller.
+           let navigationController = segue.destination as! UINavigationController
+           
+           let creationController = navigationController.topViewController as! CreationViewController
+           
+           creationController.flashcardsController = self
+       }
+
+    
 }
 

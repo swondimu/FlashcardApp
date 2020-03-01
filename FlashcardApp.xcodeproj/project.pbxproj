@@ -15,6 +15,7 @@
 		CC0037F72400ACAE004A2FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC0037F52400ACAE004A2FE4 /* LaunchScreen.storyboard */; };
 		CC0038022400ACAF004A2FE4 /* FlashcardAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0038012400ACAF004A2FE4 /* FlashcardAppTests.swift */; };
 		CC00380D2400ACAF004A2FE4 /* FlashcardAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC00380C2400ACAF004A2FE4 /* FlashcardAppUITests.swift */; };
+		CC31A4E6240AEC6E008334ED /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC31A4E5240AEC6E008334ED /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		CC0038082400ACAF004A2FE4 /* FlashcardAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC00380C2400ACAF004A2FE4 /* FlashcardAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardAppUITests.swift; sourceTree = "<group>"; };
 		CC00380E2400ACAF004A2FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC31A4E5240AEC6E008334ED /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				CC0037EC2400ACAC004A2FE4 /* SceneDelegate.swift */,
 				CC0037EE2400ACAC004A2FE4 /* ViewController.swift */,
 				CC0037F02400ACAC004A2FE4 /* Main.storyboard */,
+				CC31A4E5240AEC6E008334ED /* CreationViewController.swift */,
 				CC0037F32400ACAE004A2FE4 /* Assets.xcassets */,
 				CC0037F52400ACAE004A2FE4 /* LaunchScreen.storyboard */,
 				CC0037F82400ACAE004A2FE4 /* Info.plist */,
@@ -262,6 +265,7 @@
 				CC0037EF2400ACAC004A2FE4 /* ViewController.swift in Sources */,
 				CC0037EB2400ACAC004A2FE4 /* AppDelegate.swift in Sources */,
 				CC0037ED2400ACAC004A2FE4 /* SceneDelegate.swift in Sources */,
+				CC31A4E6240AEC6E008334ED /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
