@@ -91,7 +91,18 @@ class ViewController: UIViewController {
         
         updateNextPrevButtons()
         
-        animateCardOut()
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        }, completion: { finished in
+            self.updateLabels()
+            
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+            
+            UIView.animate(withDuration: 0.3) {
+                self.card.transform = CGAffineTransform.identity
+            }
+            
+        })
     }
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
@@ -100,32 +111,33 @@ class ViewController: UIViewController {
     
     func flipFlashcards() {
         
-    if (self.questionLabel.isHidden == false){
-        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
-                self.questionLabel.isHidden = true
-        })
-    } else if (self.questionLabel.isHidden == true){
-        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromLeft, animations: {
-                self.questionLabel.isHidden = false
-            })
-    }
-    
-    func animateCardIn() {
-        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
         
-        UIView.animate(withDuration: 0.3) {
-            self.card.transform = CGAffineTransform.identity
-        }
-    }
-    
-    func animateCardOut() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
-        }, completion: { finished in
-            self.updateLabels()
-            self.animateCardIn()
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            if (self.questionLabel.isHidden == false){
+                self.questionLabel.isHidden = true
+            }
+            else if (self.questionLabel.isHidden == true){
+                self.questionLabel.isHidden = false
+            }
         })
     }
+
+        func animateCardIn() {
+            card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+            
+            UIView.animate(withDuration: 0.3) {
+                self.card.transform = CGAffineTransform.identity
+            }
+        }
+        
+        func animateCardOut() {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+            }, completion: { finished in
+                self.updateLabels()
+                self.animateCardIn()
+            })
+        }
     
     func updateFlashcard(question: String, answer: String) {
         let flashcard = Flashcard(question: question, answer: answer)
