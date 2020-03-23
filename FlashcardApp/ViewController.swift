@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
     @IBOutlet weak var card: UIView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var flashcards = [Flashcard]()
     var currentIndex = 0
@@ -27,17 +28,37 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        card.layer.cornerRadius = 20.0
+        questionLabel.clipsToBounds = true
+        answerLabel.clipsToBounds = true
+        questionLabel.layer.cornerRadius = 20.0
+        answerLabel.layer.cornerRadius = 20.0
+        card.layer.shadowRadius = 15.0
+        card.layer.shadowOpacity = 0.2
+        
         questionLabel.isHidden = false
         
         readSavedFlashcards()
         
         if flashcards.count == 0 {
-        updateFlashcard(question:"Who is the first black female billionare?", answer: "Oprah Winfrey")
+            updateFlashcard(question: "Who is the first black female billionare?", answer: "Oprah Winfrey", isExisting: true)
         } else {
             updateLabels()
             updateNextPrevButtons()
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        card.alpha = 0.0
+        card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.card.alpha = 1.0
+            self.card.transform = CGAffineTransform.identity
+        })
     }
     
     func saveAllFlashcardsToDisk() {
@@ -76,6 +97,32 @@ class ViewController: UIViewController {
         } else {
             prevButton.isEnabled = true
         }
+    }
+    
+    @IBAction func didTapOnDelete(_ sender: Any) {
+        let alert = UIAlertController(title: "Delete Flashcard", message: "Are you sure you want to delete this flashcard?", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (deleteAction) in
+            self.deleteCurrentFlashcard()
+        }
+        alert.addAction(deleteAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+       }
+    
+    func deleteCurrentFlashcard() {
+        flashcards.remove(at: currentIndex)
+        
+        if currentIndex > flashcards.count - 1 {
+            currentIndex = flashcards.count - 1
+        }
+        
+        updateNextPrevButtons()
+        
+        updateLabels()
+        
+        saveAllFlashcardsToDisk()
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
@@ -139,23 +186,29 @@ class ViewController: UIViewController {
             })
         }
     
-    func updateFlashcard(question: String, answer: String) {
+    func updateFlashcard(question: String, answer: String, isExisting: Bool) {
         let flashcard = Flashcard(question: question, answer: answer)
         questionLabel.text = flashcard.question
         answerLabel.text = flashcard.answer
-        flashcards.append(flashcard)
         
-        print("Added new flashcard")
-        print("We now have \(flashcards.count) flashcards")
-        
-        currentIndex = flashcards.count - 1
-        print("Our current index is \(currentIndex)")
+        if isExisting {
+                   flashcards[currentIndex] = flashcard
+        } else {
+           flashcards.append(flashcard)
+           
+           print("Added new flashcard")
+           print("We now have \(flashcards.count) flashcards")
+           
+           currentIndex = flashcards.count - 1
+           print("Our current index is \(currentIndex)")
+       }
         
         updateNextPrevButtons()
         
         updateLabels()
         
         saveAllFlashcardsToDisk()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -166,6 +219,12 @@ class ViewController: UIViewController {
            let creationController = navigationController.topViewController as! CreationViewController
            
            creationController.flashcardsController = self
+        
+        if segue.identifier == "EditSegue" {
+            creationController.initialQuestion = questionLabel.text
+            creationController.initialAnswer = answerLabel.text
+        }
+        
        }
 
     

@@ -1,4 +1,10 @@
 ## Flashcard App
+
+## Final Product
+This app has multiple features which allow the user to add and delete cards as needed, edit their content, and navigate through the stack. Flashcards are saved permanently to the app, so no need to worry about whether they'll still be there after your study break!
+
+<img src="http://g.recordit.co/beUJEhtHRR.gif" width=200><br>
+
 ## Lab 4
 
 ### App Description
@@ -16,8 +22,8 @@ This app allows a user to create multiple flashcards with both a question and an
 - [x] User should see a slide animation when going to the previous flashcard
 - [x] Push code to GitHub
 ## Optional
-- [ ] User should see a nicer flaschard with rounded corners, shadows, and animating when showing the first time
-- [ ] User should see all views properly layout when using the app on a phone of different sizes
+- [x] User should see a nicer flaschard with rounded corners, shadows, and animating when showing the first time
+- [x] User should see all views properly layout when using the app on a phone of different sizes
 - [ ] Correct answer in multiple choice should be random
 
 ## Lab 3
@@ -34,8 +40,8 @@ This app allows a user to create and save multiple flashcards, and gives the abi
 - [x] User can re-open the app and see previously created flashcards
 - [x] Push code to GitHub
 ## Optional
-- [ ] User can delete a flashcard
-- [ ] User can edit existing flashcard
+- [x] User can delete a flashcard
+- [x] User can edit existing flashcard
 - [ ] User can store multiple choice questions
 
 ## Lab 2
@@ -53,8 +59,8 @@ This app allows a user to create and save multiple flashcards, and gives the abi
 - [x] User can enter a new question and answer in the creation screen to then show it on the flashcard
 - [x] Push code to GitHub
 ## Optional
-- [ ] User gets an error if they try to create a new flashcard with no question or answer
-- [ ] User can edit existing flashcard
+- [x] User gets an error if they try to create a new flashcard with no question or answer
+- [x] User can edit existing flashcard
 - [ ] User can add multiple choice answers in the creation screen
 
 ## Lab 1
@@ -73,6 +79,6 @@ This app uses labels and views to create a simple flashcard app that flips sides
 - [x] Build in logic to show the answer side when the card is tapped
 - [x] Push code to GitHub
 ## Optional
-- [ ] Toggle the flashcard between the question side and the answer side
-- [ ] Style the question and answer side of the card to better distinguish between the two sides
+- [x] Toggle the flashcard between the question side and the answer side
+- [x] Style the question and answer side of the card to better distinguish between the two sides
 - [ ] Add selectable multiple choice answers beneath the card
