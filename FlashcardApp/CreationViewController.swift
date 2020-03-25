@@ -19,7 +19,7 @@ class CreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .init(red: 0.88, green: 1.05, blue: 0.55, alpha: 1.00)
+        self.view.backgroundColor = .init(red:0.88, green:0.95, blue:0.25, alpha:1.00)
         // Do any additional setup after loading the view.
         questionTextField.text = initialQuestion
         answerTextField.text = initialAnswer

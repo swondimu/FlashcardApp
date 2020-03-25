@@ -28,6 +28,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        assignbackground()
         card.layer.cornerRadius = 20.0
         questionLabel.clipsToBounds = true
         answerLabel.clipsToBounds = true
@@ -41,12 +43,25 @@ class ViewController: UIViewController {
         readSavedFlashcards()
         
         if flashcards.count == 0 {
-            updateFlashcard(question: "Who is the first black female billionare?", answer: "Oprah Winfrey", isExisting: true)
+            updateFlashcard(question: "Who is the first black female billionare?", answer: "Oprah Winfrey", isExisting: false)
         } else {
             updateLabels()
             updateNextPrevButtons()
         }
         
+    }
+    
+    func assignbackground(){
+        let background = UIImage(named: "background")
+
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -192,7 +207,8 @@ class ViewController: UIViewController {
         answerLabel.text = flashcard.answer
         
         if isExisting {
-                   flashcards[currentIndex] = flashcard
+            print(currentIndex)
+            flashcards[currentIndex] = flashcard
         } else {
            flashcards.append(flashcard)
            
