@@ -3,7 +3,7 @@
 ## Final Product
 This app has multiple features which allow the user to add and delete cards as needed, edit their content, and navigate through the stack. Flashcards are saved permanently to the app, so no need to worry about whether they'll still be there after your study break!
 
-<img src="http://g.recordit.co/q4fzQbCrAb.gif" width=200><br>
+<img src="http://g.recordit.co/XPgsVmUgeV.gif" width=200><br>
 
 ## Lab 4
 
